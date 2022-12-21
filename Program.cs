@@ -8,7 +8,7 @@ bool fixed2 = false;
 bool fixed3 = false;
 bool fixed4 = false;
 bool fixed5 = false;
-int count = 0;
+
 
 string input;
 Console.Clear();
@@ -23,7 +23,7 @@ void RollDice()
 
 
 }
-void PrintDice() { count++; System.Console.WriteLine($"Dice roll {count} of 3"); Console.WriteLine(dice1); Console.WriteLine(dice2); Console.WriteLine(dice3); Console.WriteLine(dice4); Console.WriteLine(dice5); }
+void PrintDice(int count) { System.Console.WriteLine($"Doce roll #{count} of 3: {dice1} {dice2} {dice3} {dice4} {dice5}");}
 void fixedDice()
 {
     do
@@ -120,17 +120,18 @@ for (int i = 10; i > 0; i--)
                 System.Console.WriteLine($"Your final sortet dices were {dice1}, {dice2}, {dice3}, {dice4}, {dice5}");
 }
 
-do
-{
+for(int i = 0; i < 3; i++){
+
     RollDice();
-    PrintDice();
+    PrintDice(i);
     fixedDice();
-} while (count < 3);
+}
 System.Console.WriteLine("Game finished");
 System.Console.WriteLine($"Your final dices were {dice1}, {dice2}, {dice3}, {dice4}, {dice5}");
 SortDice();
 RollDice();
 void AnalyzingAndPrintResult(){
+
     if(dice1 == dice5 ){System.Console.WriteLine("Five of a kind");}
     else if(dice1 == dice4){System.Console.WriteLine("You have four of a kind");}
     else if(dice2 == dice5){System.Console.WriteLine("You have  four of a kind");}
@@ -150,3 +151,4 @@ void AnalyzingAndPrintResult(){
 
 
 }
+AnalyzingAndPrintResult();
